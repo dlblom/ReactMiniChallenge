@@ -1,19 +1,15 @@
-import React from "react";
-// TO DO: Create a Fact Functional component which returns a div in the format below
+// TO DO: The fact component should render an animal fact from data.js
 
-// NOTE: In order to maintain CSS styling, do not alter the existing tags or their classNames
-const Fact = () => {
+function Fact() {
   return (
-    <div className="factCard">
-      <h1>{"TO DO: Add animal name from data"}</h1>
-      {/* TODO: Attach an onClick event to the button */}
-      <button value={"TODO: add value equal to animal name"}>
+    <div className='factCard' data-testid='factCard'>
+      <h1>{'TO DO: Add animal name from data'}</h1>
+      {/* TODO: Clicking the favorite button should update the App state with the favorited animal name */}
+      <button value={'TODO: add value equal to animal name'} name='faveBtn'>
         Click to favorite
       </button>
-      <img src={"TO DO: Add image link from data"} width="600" height="400" />
-      <h3>{"TO DO: Add animal fact from data"}</h3>
+      <img src={'TO DO: Add image link from data'} width='600' height='400' alt={'TO DO: Add alt text from data'} />
+      <h3>{'TO DO: Add animal fact from data'}</h3>
     </div>
   );
-};
-
-export default Fact;
+}

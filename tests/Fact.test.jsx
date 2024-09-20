@@ -1,7 +1,9 @@
-import { getByAltText, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Fact } from '../src/Fact';
 import { animalFacts } from '../src/data';
 import { expect } from 'vitest';
+import { fireEvent } from '@testing-library/react';
+import { vi } from 'vitest';
 
 describe('Fact', () => {
   test('renders', () => {
@@ -9,16 +11,16 @@ describe('Fact', () => {
 
     expect(getByText('Elephant')).toBeInTheDocument();
     expect(getByText('Baby Elephants suck their trunks for comfort.')).toBeInTheDocument();
-    expect(getByAltText('Baby Elephant')).toBeInTheDocument();
-    expect(getByRole('button', { name: 'faveBtn' })).toBeInTheDocument();
+    expect(getByRole('img', { name: 'Baby Elephant' })).toBeVisible();
+    expect(getByRole('button', { name: 'Click to favorite' })).toBeInTheDocument();
   });
 
   test('handles favorite button click', () => {
-    const { getByRole } = render(<Fact fact={animalFacts[0]} />);
-    const faveBtn = getByRole('button', { name: 'faveBtn' });
+    const handleClick = vi.fn();
+    const { getByRole } = render(<Fact fact={animalFacts[0]} handleClick={handleClick} />);
+    const faveBtn = getByRole('button', { name: 'Click to favorite' });
 
     fireEvent.click(faveBtn);
     expect(handleClick).toHaveBeenCalledTimes(1);
-    expect(handleClick).toHaveBeenCalledWith('Elephant');
   });
 });

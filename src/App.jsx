@@ -1,4 +1,3 @@
-import { animalFacts } from "./data";
 // Before jumping into coding, check out the README!
 
 // TODO: Create an App component which renders FactsList

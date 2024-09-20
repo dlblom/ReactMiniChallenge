@@ -1,4 +1,4 @@
-import { getByAltText, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { animalFacts } from '../src/data';
 import { expect } from 'vitest';
 import { FactsList } from '../src/FactsList';
